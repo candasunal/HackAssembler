@@ -68,6 +68,39 @@ public class TestAssembler {
 
     @Test
     public void testConvertCompToBinary() {
+        assertEquals("0101010", testAssembler.convertCompToBinary("0"));
+        assertEquals("0111111", testAssembler.convertCompToBinary("1"));
+        assertEquals("0111010", testAssembler.convertCompToBinary("-1"));
+
+        assertEquals("0001100", testAssembler.convertCompToBinary("D"));
+        assertEquals("0110000", testAssembler.convertCompToBinary("A"));
+        assertEquals("0001101", testAssembler.convertCompToBinary("!D"));
+        assertEquals("0110001", testAssembler.convertCompToBinary("!A"));
+        assertEquals("0001111", testAssembler.convertCompToBinary("-D"));
+        assertEquals("0110011", testAssembler.convertCompToBinary("-A"));
+
+        assertEquals("0011111", testAssembler.convertCompToBinary("D+1"));
+        assertEquals("0110111", testAssembler.convertCompToBinary("A+1"));
+        assertEquals("0001110", testAssembler.convertCompToBinary("D-1"));
+        assertEquals("0110010", testAssembler.convertCompToBinary("A-1"));
+        assertEquals("0000010", testAssembler.convertCompToBinary("D+A"));
+        assertEquals("0010011", testAssembler.convertCompToBinary("D-A"));
+        assertEquals("0000111", testAssembler.convertCompToBinary("A-D"));
+        assertEquals("0000000", testAssembler.convertCompToBinary("D&A"));
+        assertEquals("0010101", testAssembler.convertCompToBinary("D|A"));
+
+
+        assertEquals("1110000", testAssembler.convertCompToBinary("M"));
+        assertEquals("1110001", testAssembler.convertCompToBinary("!M"));
+        assertEquals("1110011", testAssembler.convertCompToBinary("-M"));
+        assertEquals("1110111", testAssembler.convertCompToBinary("M+1"));
+        assertEquals("1110010", testAssembler.convertCompToBinary("M-1"));
+        
+        assertEquals("1000010", testAssembler.convertCompToBinary("D+M"));
+        assertEquals("1010011", testAssembler.convertCompToBinary("D-M"));
+        assertEquals("1000111", testAssembler.convertCompToBinary("M-D"));
+        assertEquals("1000000", testAssembler.convertCompToBinary("D&M"));
+        assertEquals("1010101", testAssembler.convertCompToBinary("D|M"));
     }
     
 }
